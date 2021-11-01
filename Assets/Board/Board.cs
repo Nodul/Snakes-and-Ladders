@@ -1,4 +1,4 @@
-using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,6 +32,16 @@ public class Board
         return _boardTiles[tileNumber - 1];
     }
 
+    public bool IsTileSnakeHead(int tileNumber) 
+    {
+        return Snakes.Any(x => x.HeadPosition == tileNumber);
+    }
+
+    public int GetSnakeTailFromHead(int tileNumber) 
+    {
+        return Snakes.First(x => x.HeadPosition == tileNumber).TailPosition;
+    }
+
     private void CreateTiles() 
     {
         _boardTiles = new BoardTile[Size];
@@ -47,7 +57,7 @@ public class Board
         Tokens = new List<Token>();
         for(int i = 0; i < numOfTokens; i++) 
         {
-            Tokens.Add(Token.Create(i + 1, Size));
+            Tokens.Add(Token.Create(i + 1, this, Size));
         }
     }
 
