@@ -11,6 +11,9 @@
 * As a player I want to be able to move my token So that I can get closer to the goal
 
 * As a player I want to move my token based on the roll of a die So that there is an element of chance in the game
+	- [X] Create Dice structure
+	- [X] Roll dice on click
+	- [X] Display dice roll result
 
 * As a player I want to be able to win the game So that I can gloat to everyone around
 
@@ -46,3 +49,4 @@ The goal of this test is to objectively evaluate your technical skills, here are
 # Credits
 
 * Palette - Endesga 32 Palette - created by Endesga - https://lospec.com/palette-list/endesga-32
+* Dice sprites - created by JamesWhite - https://opengameart.org/content/dice-4
