@@ -31,6 +31,8 @@
 
 * As a player I want ladders to move my token up So that the game is more fun
 
+* As a player I want a main menu, where I can setup game settings, like number of players, so that I can have more fun
+
 # The Task
 
 Snakes and Ladders is a board game involving two or more players rolling dice in order to move their tokens across a board. The board is made up of a collection of numbered squares and is adorned with 'snakes' and 'ladders', which link two squares on the board- snakes link the squares downwards whilst ladders link them going upwards. This means that landing at the bottom of a ladder moves you to the top of that ladder, whereas landing on the top of a snake moves you to the bottom of that snake. The objective of the game is to get your token to the final square before your opponents do.
