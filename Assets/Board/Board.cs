@@ -41,6 +41,6 @@ public class Board
 
     private void CreateTokens() 
     {
-        Token = Token.Create();
+        Token = Token.Create(Size);
     }
 }

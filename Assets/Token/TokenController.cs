@@ -1,21 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TokenController : MonoBehaviour
 {
-    private TokenGO _token;
-    private DiceGO _dice;
+    public GameObject VictoryPanel;
+    private TokenGO _tokenGO;
+    private DiceGO _diceGO;
 
     private void Awake()
     {
-        _dice = FindObjectOfType<DiceGO>();
+        _diceGO = FindObjectOfType<DiceGO>();
     }
 
     public void AddPlayableToken(Token token, TokenGO tokenGO) 
     {
         tokenGO.InitToken(token);
-        _token = tokenGO;
-        _dice.DiceRolled += tokenGO.OnDiceRolled;
+        token.TokenFinished += OnTokenFinished;
+        _tokenGO = tokenGO;
+        
+        _diceGO.DiceRolled += tokenGO.OnDiceRolled;
+    }
+
+    private void OnTokenFinished(Token token) 
+    {
+        VictoryPanel.gameObject.SetActive(true);
+        _diceGO.gameObject.SetActive(false);
     }
 }

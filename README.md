@@ -18,8 +18,14 @@
 	- [X] Make Token move on Dice roll
 
 * As a player I want to be able to win the game So that I can gloat to everyone around
+	- [X] make player bounce from final tile if he rolls a too high number
+	- [X] Stop game and display Win message when player reaches final tile
 
 * As a player, I want to be able to have other players play as well So that the game is more fun
+	- [ ] Add support for up to 4 players
+		- [ ] place all tokens
+		- [ ] players take turns rolling dice and moving their token
+	- [ ] show score panel with who has already reached the end
 
 * As a player I want snakes to move my token down So that the game is more fun
 

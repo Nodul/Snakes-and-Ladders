@@ -106,7 +106,7 @@ public class BoardRenderer : MonoBehaviour
     private void RenderTokens(int xStartPos, int yStartPos)
     {
         var tokenGO = Instantiate<TokenGO>(TokenPrefab);
-        tokenGO.transform.localPosition = new Vector3(xStartPos, yStartPos, -0.1f);
+        tokenGO.transform.localPosition = new Vector3(xStartPos, yStartPos, tokenGO.TokenZOffset);
 
         var spriteRenderer = tokenGO.GetComponent<SpriteRenderer>();
 
@@ -118,6 +118,7 @@ public class BoardRenderer : MonoBehaviour
 
     private void RerenderToken(TokenGO tokenToMove) 
     {
-        tokenToMove.transform.localPosition = _boardTilesPositions[tokenToMove.CurrentPosition];
+        var pos2D = _boardTilesPositions[tokenToMove.CurrentPosition];
+        tokenToMove.transform.localPosition = new Vector3(pos2D.x, pos2D.y, tokenToMove.TokenZOffset);
     }
 }

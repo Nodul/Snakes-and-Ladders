@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class TokenGO : MonoBehaviour
 {
+    public readonly float TokenZOffset = -0.1f;
     public Sprite TokenSprite;
     public event Action<TokenGO> TokenMoved;
-    public int CurrentPosition => _token.CurrentPosition;
+    public int CurrentPosition => Token.CurrentPosition;
 
-    private Token _token;
+    public Token Token { get; private set; }
     private SpriteRenderer _spriteRenderer;
 
     private void Awake()
@@ -18,12 +19,12 @@ public class TokenGO : MonoBehaviour
 
     public void InitToken(Token token) 
     {
-        _token = token;
+        Token = token;
     }
 
     public void OnDiceRolled(int result) 
-    {
-        _token.MoveTokenByAmount(result);
+    {        
+        Token.MoveTokenByAmount(result);
         TokenMoved?.Invoke(this);
     }
 }
