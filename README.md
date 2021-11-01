@@ -6,7 +6,7 @@
 	- [X] Display the board
 	- [X] Make the board tiles properly align
 	- [ ] Add colors to board tiles
-	- [ ] Center camera on board
+	- [X] Center camera on board
 
 * As a player I want to be able to move my token So that I can get closer to the goal
 

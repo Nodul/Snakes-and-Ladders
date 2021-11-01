@@ -5,8 +5,7 @@ using TMPro;
 
 public class BoardRenderer : MonoBehaviour
 {
-    [SerializeField]
-    private int _boardSizeLength;
+    public int BoardSizeLength;
 
     [SerializeField]
     private Sprite _boardTileSprite;
@@ -18,7 +17,7 @@ public class BoardRenderer : MonoBehaviour
 
     private void Awake()
     {
-        _board = Board.Create(_boardSizeLength);
+        _board = Board.Create(BoardSizeLength);
     }
 
     // Start is called before the first frame update
@@ -35,7 +34,7 @@ public class BoardRenderer : MonoBehaviour
 
         for (int i = 1; i <= _board.Size; i++)
         {
-            if (i % _boardSizeLength == 1)
+            if (i % BoardSizeLength == 1)
             {
                 y++;
                 yChangedThisLoop = true;
