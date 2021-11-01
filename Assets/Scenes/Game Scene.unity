@@ -600,11 +600,14 @@ MonoBehaviour:
   NumberOfTokens: 4
   BoardTileSprites:
   - {fileID: 0}
-  Sprite1: {fileID: 799102332, guid: 72c1bc05315cf054f87618b6367da597, type: 3}
-  Sprite2: {fileID: 878360352, guid: 72c1bc05315cf054f87618b6367da597, type: 3}
-  Sprite3: {fileID: 511046835, guid: 72c1bc05315cf054f87618b6367da597, type: 3}
-  Sprite4: {fileID: 1286897425, guid: 72c1bc05315cf054f87618b6367da597, type: 3}
+  BoardTileSprite1: {fileID: 799102332, guid: 72c1bc05315cf054f87618b6367da597, type: 3}
+  BoardTileSprite2: {fileID: 878360352, guid: 72c1bc05315cf054f87618b6367da597, type: 3}
+  BoardTileSprite3: {fileID: 511046835, guid: 72c1bc05315cf054f87618b6367da597, type: 3}
+  BoardTileSprite4: {fileID: 1286897425, guid: 72c1bc05315cf054f87618b6367da597, type: 3}
   TokenPrefab: {fileID: 5105578178547016428, guid: bf36ca8a8a3163a40a31e907fd2d30fd, type: 3}
+  SnakeTailSprite: {fileID: 325855286, guid: 3b6052f67333bd0418b9e6378d5fa776, type: 3}
+  SnakeSegmentSprite: {fileID: -1792648586, guid: 3b6052f67333bd0418b9e6378d5fa776, type: 3}
+  SnakeHeadSprite: {fileID: 1012183652, guid: 3b6052f67333bd0418b9e6378d5fa776, type: 3}
   _boardTileLabelPrefab: {fileID: 8739285370094600598, guid: 6732490b685baff4eaf7a744bdbd905d, type: 3}
 --- !u!1001 &1791165385
 PrefabInstance:

@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Snakes
+    uniqueID: 188524549
+    locked: 0
+  - name: Tokens
+    uniqueID: 848660993
+    locked: 0

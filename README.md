@@ -28,7 +28,7 @@
 		- [X] players take turns rolling dice and moving their token
 
 * As a player I want snakes to move my token down So that the game is more fun
-	- [ ] Add Snake structure
+	- [X] Add Snake structure
 	- [ ] Display snake properly
 	- [ ] Make tokens go down the snake if they step on it's head
 	- [ ] Randomly assign a few snakes at start
@@ -74,3 +74,4 @@ The goal of this test is to objectively evaluate your technical skills, here are
 
 * Palette - Endesga 32 Palette - created by Endesga - https://lospec.com/palette-list/endesga-32
 * Dice sprites - created by JamesWhite - https://opengameart.org/content/dice-4
+* Snake sprites - created by actuallypav - https://opengameart.org/content/snake-tilemap

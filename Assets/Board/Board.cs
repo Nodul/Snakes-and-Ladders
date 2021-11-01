@@ -8,6 +8,8 @@ public class Board
 
     public List<Token> Tokens { get; private set; }
 
+    public List<Snake> Snakes { get; private set; }
+
     public int SideLength { get; }
 
     public int Size => SideLength * SideLength;
@@ -17,6 +19,7 @@ public class Board
         SideLength = size;
         CreateTiles();
         CreateTokens(numOfTokens);
+        CreateSnakes();
     }
 
     public static Board Create(int sideLength, int numOfTokens) 
@@ -46,5 +49,18 @@ public class Board
         {
             Tokens.Add(Token.Create(i + 1, Size));
         }
+    }
+
+    private void CreateSnakes() 
+    {
+        Snakes = new List<Snake>();
+
+        Snake testSnake = Snake.Create(2, 30);
+
+        Snakes.Add(testSnake);
+
+        var testSnake2 = Snake.Create(10, 34);
+
+        Snakes.Add(testSnake2);
     }
 }

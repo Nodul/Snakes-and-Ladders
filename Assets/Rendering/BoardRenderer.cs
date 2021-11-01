@@ -9,11 +9,15 @@ public class BoardRenderer : MonoBehaviour
     [Range(1, 4)]
     public int NumberOfTokens; 
     public Sprite[] BoardTileSprites;
-    public Sprite Sprite1;
-    public Sprite Sprite2;
-    public Sprite Sprite3;
-    public Sprite Sprite4;
+    public Sprite BoardTileSprite1;
+    public Sprite BoardTileSprite2;
+    public Sprite BoardTileSprite3;
+    public Sprite BoardTileSprite4;
     public TokenGO TokenPrefab;
+
+    public Sprite SnakeTailSprite;
+    public Sprite SnakeSegmentSprite;
+    public Sprite SnakeHeadSprite;
 
     private int _currentBoardTileSpriteIndex = 1;
     private Sprite[] _spriteBoardTilesWorkaround;
@@ -32,7 +36,7 @@ public class BoardRenderer : MonoBehaviour
         // HACK I had to use this workaround because the normal BoardTileSprites array seems to be bugged in my UnityEditor, and I cannot assign sprites there
         _spriteBoardTilesWorkaround = new Sprite[]
         {
-            Sprite1, Sprite2, Sprite3, Sprite4
+            BoardTileSprite1, BoardTileSprite2, BoardTileSprite3, BoardTileSprite4
         };
     }
 
@@ -87,8 +91,10 @@ public class BoardRenderer : MonoBehaviour
             if (i == 1)
             {
                 RenderTokens(x, y);
-            }       
+            }         
         }
+
+        RenderSnakes();
     }
 
     private Sprite GetNextTileSprite()
@@ -115,6 +121,7 @@ public class BoardRenderer : MonoBehaviour
 
             var spriteRenderer = tokenGO.GetComponent<SpriteRenderer>();
             spriteRenderer.color = tokenGO.TokenColor;
+            spriteRenderer.sortingLayerName = "Tokens";
         }
     }
 
@@ -122,5 +129,19 @@ public class BoardRenderer : MonoBehaviour
     {
         var pos2D = _boardTilesPositions[tokenToMove.CurrentPosition];
         tokenToMove.transform.localPosition = new Vector3(pos2D.x, pos2D.y, 0f) + tokenToMove.TokenPositionOffset;
+    }
+
+    private void RenderSnakes() 
+    {
+        foreach(var snake in _board.Snakes) 
+        {
+            var tailPosInWorld = _boardTilesPositions[snake.TailPosition];
+            var headPosInWorld = _boardTilesPositions[snake.HeadPosition];
+
+            var newSnakeGO = new GameObject("Snake");
+            var snakeGO = newSnakeGO.AddComponent<SnakeGO>();
+            
+            snakeGO.RenderSnake(tailPosInWorld, SnakeTailSprite, headPosInWorld, SnakeHeadSprite, SnakeSegmentSprite);
+        }
     }
 }

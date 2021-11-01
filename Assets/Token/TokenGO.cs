@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class TokenGO : MonoBehaviour
 {
-    public static readonly float TokenZOffset = -0.1f;
     public static readonly float TokenCardinalOffset = 0.25f;
     public static Vector3[] AvailableTokenPositionOffsets =
     {
-        new Vector3(TokenCardinalOffset, TokenCardinalOffset, TokenZOffset),
-        new Vector3(TokenCardinalOffset, -TokenCardinalOffset, TokenZOffset),
-        new Vector3(-TokenCardinalOffset, -TokenCardinalOffset, TokenZOffset),
-        new Vector3(-TokenCardinalOffset, TokenCardinalOffset, TokenZOffset)
+        new Vector3(TokenCardinalOffset, TokenCardinalOffset, 0f),
+        new Vector3(TokenCardinalOffset, -TokenCardinalOffset, 0f),
+        new Vector3(-TokenCardinalOffset, -TokenCardinalOffset, 0f),
+        new Vector3(-TokenCardinalOffset, TokenCardinalOffset, 0f)
     };
     public static Color[] AvailableTokenColors =
         {
