@@ -1,18 +1,22 @@
 # (Sub)tasks
 
 * As a player I want to see the game board, so that I can see what is the status of the current game.
-	- Create Board data structure
-	- Create Board Tile data structure
-	- Display the board
-	- Make the board tiles properly align
-	- Add colors to board tiles
-	- Center camera on board
-* As a player I want to be able to move my token So that I can get closer to the goal
-* As a player I want to move my token based on the roll of a die So that there is an element of chance in the game
-* As a player I want to be able to win the game So that I can gloat to everyone around
-* As a player I want snakes to move my token down So that the game is more fun
-* As a player I want ladders to move my token up So that the game is more fun
+	- [X] Create Board data structure
+	- [X] Create Board Tile data structure
+	- [X] Display the board
+	- [X] Make the board tiles properly align
+	- [ ] Add colors to board tiles
+	- [ ] Center camera on board
 
+* As a player I want to be able to move my token So that I can get closer to the goal
+
+* As a player I want to move my token based on the roll of a die So that there is an element of chance in the game
+
+* As a player I want to be able to win the game So that I can gloat to everyone around
+
+* As a player I want snakes to move my token down So that the game is more fun
+
+* As a player I want ladders to move my token up So that the game is more fun
 
 # The Task
 
