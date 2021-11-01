@@ -28,10 +28,22 @@
 		- [X] players take turns rolling dice and moving their token
 
 * As a player I want snakes to move my token down So that the game is more fun
+	- [ ] Add Snake structure
+	- [ ] Display snake properly
+	- [ ] Make tokens go down the snake if they step on it's head
+	- [ ] Randomly assign a few snakes at start
 
 * As a player I want ladders to move my token up So that the game is more fun
+	- [ ] Add Ladder structure
+	- [ ] Display Ladder properly
+	- [ ] Make tokens go up the ladder if the step on it's bottom
+	- [ ] Randomly assign a few Ladder at start
 
-* As a player I want a main menu, where I can setup game settings, like number of players, so that I can have more fun
+* As a player I want a main menu, where I can setup game settings, like number of players and their names, so that I can have more fun
+	- [ ] Main menu scene
+	- [ ] New game button
+	- [ ] List of players + names text boxes
+	- [ ] Make main game scene initialize with data from Main Menu scene
 
 # The Task
 
