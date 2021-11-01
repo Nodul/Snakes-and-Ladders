@@ -6,6 +6,8 @@ public class Board
 {
     private BoardTile[] _boardTiles;
 
+    private Token _token;
+
     public int SideLength { get; }
 
     public int Size => SideLength * SideLength;
@@ -14,6 +16,7 @@ public class Board
     {
         SideLength = size;
         CreateTiles();
+        CreateTokens();
     }
 
     public static Board Create(int sideLength) 
@@ -34,5 +37,10 @@ public class Board
         {
             _boardTiles[i] = BoardTile.Create(i);
         }
+    }
+
+    private void CreateTokens() 
+    {
+        _token = Token.Create();
     }
 }

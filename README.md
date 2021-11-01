@@ -8,14 +8,18 @@
 	- [X] Add colors to board tiles
 	- [X] Center camera on board
 
-* As a player I want to be able to move my token So that I can get closer to the goal
-
 * As a player I want to move my token based on the roll of a die So that there is an element of chance in the game
 	- [X] Create Dice structure
 	- [X] Roll dice on click
 	- [X] Display dice roll result
 
+* As a player I want to be able to move my token So that I can get closer to the goal
+	- [X] Add Token
+	- [ ] Make Token move on Dice roll
+
 * As a player I want to be able to win the game So that I can gloat to everyone around
+
+* As a player, I want to be able to have other players play as well. It will be more fun.
 
 * As a player I want snakes to move my token down So that the game is more fun
 

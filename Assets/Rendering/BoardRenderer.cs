@@ -12,8 +12,10 @@ public class BoardRenderer : MonoBehaviour
     public Sprite Sprite2;
     public Sprite Sprite3;
     public Sprite Sprite4;
+    public TokenGO TokenPrefab;
 
     private int _currentBoardTileSpriteIndex = 1;
+    private Sprite[] _spriteBoardTilesWorkaround;
 
     [SerializeField]
     private GameObject _boardTileLabelPrefab;
@@ -23,6 +25,11 @@ public class BoardRenderer : MonoBehaviour
     private void Awake()
     {
         _board = Board.Create(BoardSizeLength);
+        // HACK I had to use this workaround because the normal BoardTileSprites array seems to be bugged in my UnityEditor, and I cannot assign sprites there
+        _spriteBoardTilesWorkaround = new Sprite[]
+        {
+            Sprite1, Sprite2, Sprite3, Sprite4
+        };
     }
 
     // Start is called before the first frame update
@@ -45,7 +52,7 @@ public class BoardRenderer : MonoBehaviour
                 yChangedThisLoop = true;
             }
 
-            if (!yChangedThisLoop) 
+            if (!yChangedThisLoop)
             {
                 if (y % 2 == 0)
                 {
@@ -64,62 +71,37 @@ public class BoardRenderer : MonoBehaviour
             boardTileGO.transform.SetParent(transform, true);
 
             var spriteRenderer = boardTileGO.AddComponent<SpriteRenderer>();
-            spriteRenderer.sprite = GetNextTileSpriteWorkaround();
+            spriteRenderer.sprite = GetNextTileSprite();
 
             var text = Instantiate(_boardTileLabelPrefab);
             text.transform.localPosition = boardTileGO.transform.localPosition;
             text.transform.SetParent(boardTileGO.transform, true);
             text.GetComponentInChildren<TextMeshProUGUI>().text = $"{i}";
+
+            if (i == 1)
+            {
+                RenderTokens(x, y);
+            }
         }
     }
 
-    /// <summary>
-    /// Ugly workaround, because my UnityEditor is bugged and doesn't display array elements in the Inspector. 
-    /// </summary>
-    /// <returns></returns>
-    private Sprite GetNextTileSpriteWorkaround() 
-    {
-        Sprite sprite = null;
-
-        if(_currentBoardTileSpriteIndex == 1) 
-        {
-            sprite = Sprite1;
-        }
-        else if (_currentBoardTileSpriteIndex == 2)
-        {
-            sprite = Sprite2;
-        }
-        else if (_currentBoardTileSpriteIndex == 3)
-        {
-            sprite = Sprite3;
-        }
-        else if (_currentBoardTileSpriteIndex == 4)
-        {
-            sprite = Sprite4;
-        }
-
-        _currentBoardTileSpriteIndex++;
-        if (_currentBoardTileSpriteIndex > 4)
-        {
-            _currentBoardTileSpriteIndex = 1;
-        }
-
-        return sprite;
-    }
-
-    /// <summary>
-    /// Normally I would use this implementation, but my UnityEditor seems have a bug which prevents from assigning elements to arrays in the editor
-    /// </summary>
-    /// <returns></returns>
     private Sprite GetNextTileSprite()
     {
-        var sprite = BoardTileSprites[_currentBoardTileSpriteIndex];
+        var sprite = _spriteBoardTilesWorkaround[_currentBoardTileSpriteIndex];
         _currentBoardTileSpriteIndex++;
-        if(_currentBoardTileSpriteIndex == BoardTileSprites.Length) 
+        if (_currentBoardTileSpriteIndex == _spriteBoardTilesWorkaround.Length)
         {
             _currentBoardTileSpriteIndex = 0;
         }
 
         return sprite;
+    }
+
+    private void RenderTokens(int xStartPos, int yStartPos)
+    {
+        var tokenGO = Instantiate<TokenGO>(TokenPrefab);
+        tokenGO.transform.localPosition = new Vector3(xStartPos, yStartPos, -0.1f);
+
+        var spriteRenderer = tokenGO.GetComponent<SpriteRenderer>();
     }
 }
