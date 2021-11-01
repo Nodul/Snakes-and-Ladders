@@ -15,11 +15,11 @@
 
 * As a player I want to be able to move my token So that I can get closer to the goal
 	- [X] Add Token
-	- [ ] Make Token move on Dice roll
+	- [X] Make Token move on Dice roll
 
 * As a player I want to be able to win the game So that I can gloat to everyone around
 
-* As a player, I want to be able to have other players play as well. It will be more fun.
+* As a player, I want to be able to have other players play as well So that the game is more fun
 
 * As a player I want snakes to move my token down So that the game is more fun
 

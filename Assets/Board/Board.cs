@@ -6,7 +6,7 @@ public class Board
 {
     private BoardTile[] _boardTiles;
 
-    private Token _token;
+    public Token Token { get; private set; }
 
     public int SideLength { get; }
 
@@ -41,6 +41,6 @@ public class Board
 
     private void CreateTokens() 
     {
-        _token = Token.Create();
+        Token = Token.Create();
     }
 }

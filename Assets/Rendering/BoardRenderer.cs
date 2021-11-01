@@ -22,8 +22,12 @@ public class BoardRenderer : MonoBehaviour
 
     private Board _board;
 
+    private Dictionary<int, Vector2> _boardTilesPositions;
+    private TokenGO _tokens;
+
     private void Awake()
     {
+        _boardTilesPositions = new Dictionary<int, Vector2>();
         _board = Board.Create(BoardSizeLength);
         // HACK I had to use this workaround because the normal BoardTileSprites array seems to be bugged in my UnityEditor, and I cannot assign sprites there
         _spriteBoardTilesWorkaround = new Sprite[]
@@ -64,6 +68,8 @@ public class BoardRenderer : MonoBehaviour
                 }
             }
 
+            _boardTilesPositions.Add(i, new Vector2(x, y));
+
             yChangedThisLoop = false;
 
             var boardTileGO = new GameObject($"[{i}]");
@@ -81,7 +87,7 @@ public class BoardRenderer : MonoBehaviour
             if (i == 1)
             {
                 RenderTokens(x, y);
-            }
+            }       
         }
     }
 
@@ -103,5 +109,15 @@ public class BoardRenderer : MonoBehaviour
         tokenGO.transform.localPosition = new Vector3(xStartPos, yStartPos, -0.1f);
 
         var spriteRenderer = tokenGO.GetComponent<SpriteRenderer>();
+
+        _tokens = tokenGO;
+        _tokens.TokenMoved += RerenderToken;
+
+        FindObjectOfType<TokenController>().AddPlayableToken(_board.Token, tokenGO);
+    }
+
+    private void RerenderToken(TokenGO tokenToMove) 
+    {
+        tokenToMove.transform.localPosition = _boardTilesPositions[tokenToMove.CurrentPosition];
     }
 }

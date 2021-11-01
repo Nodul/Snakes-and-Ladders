@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +14,8 @@ public class DiceGO : MonoBehaviour
     private Dice _dice;
     private SpriteRenderer _spriteRenderer;
     private Sprite[] _spriteSheedWorkaround;
+
+    public event Action<int> DiceRolled;
 
     private void Awake()
     {
@@ -35,6 +37,8 @@ public class DiceGO : MonoBehaviour
         var result = _dice.RollDice();
 
         _spriteRenderer.sprite = _spriteSheedWorkaround[result - 1];
+
+        DiceRolled?.Invoke(result);
 
         return result;
     }
