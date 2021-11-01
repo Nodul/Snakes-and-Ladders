@@ -546,6 +546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoardSizeLength: 10
+  NumberOfTokens: 4
   BoardTileSprites:
   - {fileID: 0}
   Sprite1: {fileID: 799102332, guid: 72c1bc05315cf054f87618b6367da597, type: 3}

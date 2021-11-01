@@ -6,7 +6,8 @@ using TMPro;
 public class BoardRenderer : MonoBehaviour
 {
     public int BoardSizeLength;
-
+    [Range(1, 4)]
+    public int NumberOfTokens; 
     public Sprite[] BoardTileSprites;
     public Sprite Sprite1;
     public Sprite Sprite2;
@@ -23,12 +24,11 @@ public class BoardRenderer : MonoBehaviour
     private Board _board;
 
     private Dictionary<int, Vector2> _boardTilesPositions;
-    private TokenGO _tokens;
 
     private void Awake()
     {
         _boardTilesPositions = new Dictionary<int, Vector2>();
-        _board = Board.Create(BoardSizeLength);
+        _board = Board.Create(BoardSizeLength, NumberOfTokens);
         // HACK I had to use this workaround because the normal BoardTileSprites array seems to be bugged in my UnityEditor, and I cannot assign sprites there
         _spriteBoardTilesWorkaround = new Sprite[]
         {
@@ -105,20 +105,22 @@ public class BoardRenderer : MonoBehaviour
 
     private void RenderTokens(int xStartPos, int yStartPos)
     {
-        var tokenGO = Instantiate<TokenGO>(TokenPrefab);
-        tokenGO.transform.localPosition = new Vector3(xStartPos, yStartPos, tokenGO.TokenZOffset);
+        foreach(var token in _board.Tokens) 
+        {
+            var tokenGO = Instantiate<TokenGO>(TokenPrefab);         
+            
+            tokenGO.TokenMoved += RerenderToken;
+            FindObjectOfType<TokenController>().AddPlayableToken(token, tokenGO);
+            tokenGO.transform.localPosition = new Vector3(xStartPos, yStartPos, 0f) + tokenGO.TokenPositionOffset;
 
-        var spriteRenderer = tokenGO.GetComponent<SpriteRenderer>();
-
-        _tokens = tokenGO;
-        _tokens.TokenMoved += RerenderToken;
-
-        FindObjectOfType<TokenController>().AddPlayableToken(_board.Token, tokenGO);
+            var spriteRenderer = tokenGO.GetComponent<SpriteRenderer>();
+            spriteRenderer.color = tokenGO.TokenColor;
+        }
     }
 
     private void RerenderToken(TokenGO tokenToMove) 
     {
         var pos2D = _boardTilesPositions[tokenToMove.CurrentPosition];
-        tokenToMove.transform.localPosition = new Vector3(pos2D.x, pos2D.y, tokenToMove.TokenZOffset);
+        tokenToMove.transform.localPosition = new Vector3(pos2D.x, pos2D.y, 0f) + tokenToMove.TokenPositionOffset;
     }
 }

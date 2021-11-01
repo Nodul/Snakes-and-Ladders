@@ -6,22 +6,25 @@ public class Token
 {
     private int _finalTileNumber;
 
+    public int Id { get; private set; }
+
     public int CurrentPosition { get; private set; }
 
     public TokenState TokenState { get; private set; }
 
     public event Action<Token> TokenFinished;
 
-    private Token(int finalTileNumber)
+    private Token(int id, int finalTileNumber)
     {
+        Id = id;
         _finalTileNumber = finalTileNumber;
         CurrentPosition = 1; // All tokens start at position 1
         TokenState = TokenState.Playing;
     }
 
-    public static Token Create(int finalTileNumber)
+    public static Token Create(int id, int finalTileNumber)
     {
-        return new Token(finalTileNumber);
+        return new Token(id, finalTileNumber);
     }
 
     public void MoveTokenByAmount(int amountToMove)

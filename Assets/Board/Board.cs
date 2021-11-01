@@ -6,22 +6,22 @@ public class Board
 {
     private BoardTile[] _boardTiles;
 
-    public Token Token { get; private set; }
+    public List<Token> Tokens { get; private set; }
 
     public int SideLength { get; }
 
     public int Size => SideLength * SideLength;
 
-    private Board(int size)
+    private Board(int size, int numOfTokens)
     {
         SideLength = size;
         CreateTiles();
-        CreateTokens();
+        CreateTokens(numOfTokens);
     }
 
-    public static Board Create(int sideLength) 
+    public static Board Create(int sideLength, int numOfTokens) 
     {
-        return new Board(sideLength);
+        return new Board(sideLength, numOfTokens);
     }
 
     public BoardTile GetTile(int tileNumber) 
@@ -39,8 +39,12 @@ public class Board
         }
     }
 
-    private void CreateTokens() 
+    private void CreateTokens(int numOfTokens) 
     {
-        Token = Token.Create(Size);
+        Tokens = new List<Token>();
+        for(int i = 0; i < numOfTokens; i++) 
+        {
+            Tokens.Add(Token.Create(i + 1, Size));
+        }
     }
 }

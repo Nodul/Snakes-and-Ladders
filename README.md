@@ -22,9 +22,10 @@
 	- [X] Stop game and display Win message when player reaches final tile
 
 * As a player, I want to be able to have other players play as well So that the game is more fun
-	- [ ] Add support for up to 4 players
-		- [ ] place all tokens
-		- [ ] players take turns rolling dice and moving their token
+	- [X] Add support for up to 4 players
+		- [X] place all tokens properly
+		- [X] add different colors to tokens
+		- [X] players take turns rolling dice and moving their token
 	- [ ] show score panel with who has already reached the end
 
 * As a player I want snakes to move my token down So that the game is more fun
