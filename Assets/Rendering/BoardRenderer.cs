@@ -7,8 +7,13 @@ public class BoardRenderer : MonoBehaviour
 {
     public int BoardSizeLength;
 
-    [SerializeField]
-    private Sprite _boardTileSprite;
+    public Sprite[] BoardTileSprites;
+    public Sprite Sprite1;
+    public Sprite Sprite2;
+    public Sprite Sprite3;
+    public Sprite Sprite4;
+
+    private int _currentBoardTileSpriteIndex = 1;
 
     [SerializeField]
     private GameObject _boardTileLabelPrefab;
@@ -59,12 +64,62 @@ public class BoardRenderer : MonoBehaviour
             boardTileGO.transform.SetParent(transform, true);
 
             var spriteRenderer = boardTileGO.AddComponent<SpriteRenderer>();
-            spriteRenderer.sprite = _boardTileSprite;
+            spriteRenderer.sprite = GetNextTileSpriteWorkaround();
 
             var text = Instantiate(_boardTileLabelPrefab);
             text.transform.localPosition = boardTileGO.transform.localPosition;
             text.transform.SetParent(boardTileGO.transform, true);
             text.GetComponentInChildren<TextMeshProUGUI>().text = $"{i}";
         }
+    }
+
+    /// <summary>
+    /// Ugly workaround, because my UnityEditor is bugged and doesn't display array elements in the Inspector. 
+    /// </summary>
+    /// <returns></returns>
+    private Sprite GetNextTileSpriteWorkaround() 
+    {
+        Sprite sprite = null;
+
+        if(_currentBoardTileSpriteIndex == 1) 
+        {
+            sprite = Sprite1;
+        }
+        else if (_currentBoardTileSpriteIndex == 2)
+        {
+            sprite = Sprite2;
+        }
+        else if (_currentBoardTileSpriteIndex == 3)
+        {
+            sprite = Sprite3;
+        }
+        else if (_currentBoardTileSpriteIndex == 4)
+        {
+            sprite = Sprite4;
+        }
+
+        _currentBoardTileSpriteIndex++;
+        if (_currentBoardTileSpriteIndex > 4)
+        {
+            _currentBoardTileSpriteIndex = 1;
+        }
+
+        return sprite;
+    }
+
+    /// <summary>
+    /// Normally I would use this implementation, but my UnityEditor seems have a bug which prevents from assigning elements to arrays in the editor
+    /// </summary>
+    /// <returns></returns>
+    private Sprite GetNextTileSprite()
+    {
+        var sprite = BoardTileSprites[_currentBoardTileSpriteIndex];
+        _currentBoardTileSpriteIndex++;
+        if(_currentBoardTileSpriteIndex == BoardTileSprites.Length) 
+        {
+            _currentBoardTileSpriteIndex = 0;
+        }
+
+        return sprite;
     }
 }

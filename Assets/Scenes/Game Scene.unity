@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f21dba662c24c584383e0c695f92be8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1676975383
+--- !u!1 &1656681664
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -228,8 +228,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1676975385}
-  - component: {fileID: 1676975384}
+  - component: {fileID: 1656681665}
+  - component: {fileID: 1656681666}
   m_Layer: 0
   m_Name: Board
   m_TagString: Untagged
@@ -237,36 +237,41 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1676975384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1676975383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf314e785e819da4c8b46d220231ad93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BoardSizeLength: 10
-  _boardTileSprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  _boardTileLabelPrefab: {fileID: 8739285370094600598, guid: 6732490b685baff4eaf7a744bdbd905d, type: 3}
---- !u!4 &1676975385
+--- !u!4 &1656681665
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1676975383}
+  m_GameObject: {fileID: 1656681664}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1656681666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656681664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf314e785e819da4c8b46d220231ad93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BoardSizeLength: 10
+  BoardTileSprites:
+  - {fileID: 0}
+  Sprite1: {fileID: 799102332, guid: 72c1bc05315cf054f87618b6367da597, type: 3}
+  Sprite2: {fileID: 878360352, guid: 72c1bc05315cf054f87618b6367da597, type: 3}
+  Sprite3: {fileID: 511046835, guid: 72c1bc05315cf054f87618b6367da597, type: 3}
+  Sprite4: {fileID: 1286897425, guid: 72c1bc05315cf054f87618b6367da597, type: 3}
+  _boardTileLabelPrefab: {fileID: 8739285370094600598, guid: 6732490b685baff4eaf7a744bdbd905d, type: 3}
 --- !u!1 &2130988403
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,5 +337,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

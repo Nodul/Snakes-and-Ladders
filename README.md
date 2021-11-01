@@ -5,7 +5,7 @@
 	- [X] Create Board Tile data structure
 	- [X] Display the board
 	- [X] Make the board tiles properly align
-	- [ ] Add colors to board tiles
+	- [X] Add colors to board tiles
 	- [X] Center camera on board
 
 * As a player I want to be able to move my token So that I can get closer to the goal
@@ -42,3 +42,7 @@ The goal of this test is to objectively evaluate your technical skills, here are
 * It's better to complete 1 task than to start 3
 * Feel free to use any libraries you feel appropriate
 * We will be looking at how you approach the task (e.g. how you break it into sub-tasks) and how you structure your code
+
+# Credits
+
+* Palette - Endesga 32 Palette - created by Endesga - https://lospec.com/palette-list/endesga-32
