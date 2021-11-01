@@ -26,7 +26,6 @@
 		- [X] place all tokens properly
 		- [X] add different colors to tokens
 		- [X] players take turns rolling dice and moving their token
-	- [ ] show score panel with who has already reached the end
 
 * As a player I want snakes to move my token down So that the game is more fun
 

@@ -5,13 +5,14 @@ using TMPro;
 
 public class TokenController : MonoBehaviour
 {
-    public GameObject VictoryPanel;
+    private VictoryPanel _victoryPanel;
     private List<TokenGO> _tokenGOs;
     private DiceGO _diceGO;
     private int _currentTokenToMoveIndex = 0;
 
     private void Awake()
     {
+        _victoryPanel = FindObjectOfType<VictoryPanel>();
         _diceGO = FindObjectOfType<DiceGO>();
         _tokenGOs = new List<TokenGO>();
         _diceGO.DiceRolled += OnDiceRolled;
@@ -36,7 +37,7 @@ public class TokenController : MonoBehaviour
 
     private void OnTokenFinished(Token token) 
     {
-        VictoryPanel.gameObject.SetActive(true);
         _diceGO.gameObject.SetActive(false);
+        _victoryPanel.ShowVictoryPanel(token.Id.ToString());
     }
 }
