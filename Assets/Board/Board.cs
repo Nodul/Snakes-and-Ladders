@@ -8,7 +8,7 @@ public class Board
 
     public List<Token> Tokens { get; private set; }
 
-    public List<Snake> Snakes { get; private set; }
+    public List<Portal> Portals { get; private set; }
 
     public int SideLength { get; }
 
@@ -32,14 +32,14 @@ public class Board
         return _boardTiles[tileNumber - 1];
     }
 
-    public bool IsTileSnakeHead(int tileNumber) 
+    public bool IsTilePortalEntry(int tileNumber) 
     {
-        return Snakes.Any(x => x.HeadPosition == tileNumber);
+        return Portals.Any(x => x.EnterPosition == tileNumber);
     }
 
-    public int GetSnakeTailFromHead(int tileNumber) 
+    public int GetPortalExitFromEntry(int tileNumber) 
     {
-        return Snakes.First(x => x.HeadPosition == tileNumber).TailPosition;
+        return Portals.First(x => x.EnterPosition == tileNumber).ExitPosition;
     }
 
     private void CreateTiles() 
@@ -63,14 +63,14 @@ public class Board
 
     private void CreateSnakes() 
     {
-        Snakes = new List<Snake>();
+        Portals = new List<Portal>();
 
-        Snake testSnake = Snake.Create(2, 30);
+        // Snakes
+        Portals.Add(Portal.Create(30, 2));
+        Portals.Add(Portal.Create(34, 10));
 
-        Snakes.Add(testSnake);
-
-        var testSnake2 = Snake.Create(10, 34);
-
-        Snakes.Add(testSnake2);
+        // Ladders
+        Portals.Add(Portal.Create(6, 25));
+        Portals.Add(Portal.Create(18, 37));
     }
 }

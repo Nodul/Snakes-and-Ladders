@@ -41,7 +41,7 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Snakes
+  - name: Portals
     uniqueID: 188524549
     locked: 0
   - name: Tokens

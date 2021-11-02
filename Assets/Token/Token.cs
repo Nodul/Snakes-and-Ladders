@@ -47,10 +47,10 @@ public class Token
             // Continue normally
             CurrentPosition += amountToMove;
 
-            if (_board.IsTileSnakeHead(CurrentPosition)) 
+            if (_board.IsTilePortalEntry(CurrentPosition)) 
             {
-                var snakeTailPos = _board.GetSnakeTailFromHead(CurrentPosition);
-                var amountToBacktrack = CurrentPosition - snakeTailPos;
+                var portalExitPos = _board.GetPortalExitFromEntry(CurrentPosition);
+                var amountToBacktrack = CurrentPosition - portalExitPos;
                 CurrentPosition -= amountToBacktrack;
                 return;
             }

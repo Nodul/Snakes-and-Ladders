@@ -29,15 +29,15 @@
 
 * As a player I want snakes to move my token down So that the game is more fun
 	- [X] Add Snake structure
-	- [ ] Display snake properly
-	- [ ] Make tokens go down the snake if they step on it's head
-	- [ ] Randomly assign a few snakes at start
+	- [X] Display snake properly
+	- [X] Make tokens go down the snake if they step on it's head
 
 * As a player I want ladders to move my token up So that the game is more fun
-	- [ ] Add Ladder structure
-	- [ ] Display Ladder properly
-	- [ ] Make tokens go up the ladder if the step on it's bottom
-	- [ ] Randomly assign a few Ladder at start
+	- [X] Add Ladder structure
+	- [X] Display Ladder properly
+	- [X] Make tokens go up the ladder if the step on it's bottom
+
+Future stuff
 
 * As a player I want a main menu, where I can setup game settings, like number of players and their names, so that I can have more fun
 	- [ ] Main menu scene
@@ -75,3 +75,4 @@ The goal of this test is to objectively evaluate your technical skills, here are
 * Palette - Endesga 32 Palette - created by Endesga - https://lospec.com/palette-list/endesga-32
 * Dice sprites - created by JamesWhite - https://opengameart.org/content/dice-4
 * Snake sprites - created by actuallypav - https://opengameart.org/content/snake-tilemap
+* Ladder sprites - created by Chasersgaming - https://opengameart.org/content/tile-set-pack-1

@@ -19,6 +19,8 @@ public class BoardRenderer : MonoBehaviour
     public Sprite SnakeSegmentSprite;
     public Sprite SnakeHeadSprite;
 
+    public Sprite LadderSprite;
+
     private int _currentBoardTileSpriteIndex = 1;
     private Sprite[] _spriteBoardTilesWorkaround;
 
@@ -94,7 +96,7 @@ public class BoardRenderer : MonoBehaviour
             }         
         }
 
-        RenderSnakes();
+        RenderPortals();
     }
 
     private Sprite GetNextTileSprite()
@@ -131,17 +133,24 @@ public class BoardRenderer : MonoBehaviour
         tokenToMove.transform.localPosition = new Vector3(pos2D.x, pos2D.y, 0f) + tokenToMove.TokenPositionOffset;
     }
 
-    private void RenderSnakes() 
+    private void RenderPortals() 
     {
-        foreach(var snake in _board.Snakes) 
+        foreach(var portal in _board.Portals) 
         {
-            var tailPosInWorld = _boardTilesPositions[snake.TailPosition];
-            var headPosInWorld = _boardTilesPositions[snake.HeadPosition];
+            var entryPosInWorld = _boardTilesPositions[portal.EnterPosition];
+            var exitPosInWorld = _boardTilesPositions[portal.ExitPosition];
 
-            var newSnakeGO = new GameObject("Snake");
-            var snakeGO = newSnakeGO.AddComponent<SnakeGO>();
-            
-            snakeGO.RenderSnake(tailPosInWorld, SnakeTailSprite, headPosInWorld, SnakeHeadSprite, SnakeSegmentSprite);
+            var newGO = new GameObject("Snake");
+            var portalGO = newGO.AddComponent<PortalGO>();
+
+            if (portal.PortalDirection == PortalDirection.Down)
+            {
+                portalGO.RenderPortal(portal, exitPosInWorld, SnakeTailSprite, entryPosInWorld, SnakeHeadSprite, SnakeSegmentSprite);
+            }
+            else if (portal.PortalDirection == PortalDirection.Up) 
+            {
+                portalGO.RenderPortal(portal, exitPosInWorld, LadderSprite, entryPosInWorld, LadderSprite, LadderSprite);
+            }
         }
     }
 }
