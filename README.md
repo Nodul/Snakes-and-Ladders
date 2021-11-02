@@ -1,3 +1,6 @@
+# How to play
+	- simply go to https://nodul.github.io/Snakes-and-Ladders/ and wait a few seconds till the game loads
+
 # (Sub)tasks
 
 * As a player I want to see the game board, so that I can see what is the status of the current game.
